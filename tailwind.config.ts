@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type {Config} from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -10,21 +10,22 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      'primary': 'var(--color-primary)',
-      'black': 'var(--color-black)',
-      'dark': 'var(--color-black)',
-      'white': 'var(--color-white)',
+      dark: 'var(--color-dark)',
+      light: 'var(--color-light)',
+      primary: 'var(--color-primary)',
+      black: 'var(--color-black)',
+      white: 'var(--color-white)',
       'gray-light': 'var(--color-gray-light)',
-      'gray': 'var(--color-gray)',
+      gray: 'var(--color-gray)',
       'gray-dark': 'var(--color-gray-dark)',
-      'blue': 'var(--color-blue)',
-      'purple': 'var(--color-purple)',
-      'pink': 'var(--color-pink)',
-      'orange': 'var(--color-orange)',
-      'green': 'var(--color-green)',
-      'yellow': 'var(--color-yellow)',
+      blue: 'var(--color-blue)',
+      purple: 'var(--color-purple)',
+      pink: 'var(--color-pink)',
+      orange: 'var(--color-orange)',
+      green: 'var(--color-green)',
+      yellow: 'var(--color-yellow)',
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

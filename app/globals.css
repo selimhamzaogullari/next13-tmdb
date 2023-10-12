@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --color-dark: #202020;
+  --color-light: #E1E1E1;
   --color-primary: #8F6EEB;
   --color-black: #202020;
   --color-white: #E1E1E1;
@@ -19,8 +21,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-black: #E1E1E1;
-    --color-white: #202020;
+    --color-dark: #E1E1E1;
+    --color-light: #202020;
   }
 }
 
@@ -29,7 +31,7 @@ body {
   font-style: normal;
   font-weight: 500;
   min-height: 100vh;
-  @apply bg-white text-black text-base
+  @apply bg-white text-black
 }
 
 .container-screen {
