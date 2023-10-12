@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #8F6EEB;
+  --color-black: #202020;
+  --color-white: #E1E1E1;
+  --color-gray-light: #C1C1C1;
+  --color-gray: #A1A1A1;
+  --color-gray-dark: #818181;
+  --color-blue: #6E83EB;
+  --color-purple: #AF6EEB;
+  --color-pink: #EB6EE4;
+  --color-orange: #EBBF6E;
+  --color-green: #6EEB83;
+  --color-yellow: #EBEB6E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-black: #E1E1E1;
+    --color-white: #202020;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  min-height: 100vh;
+  @apply bg-white text-black text-base
+}
+
+.container-screen {
+  display: grid;
+  grid-template-columns: 1fr min(1440px, 94%) 1fr;
+  grid-template-rows: 96px auto 72px;
+}
+
+.container-screen > * {
+  grid-column: 2;
+}
+
+.container-screen > .fluid {
+  grid-column: 1 / -1;
+}
