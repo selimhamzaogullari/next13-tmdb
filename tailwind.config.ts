@@ -10,8 +10,8 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      dark: 'var(--color-dark)',
-      light: 'var(--color-light)',
+      'color-text': 'var(--color-text)',
+      'color-bg': 'var(--color-bg)',
       primary: 'var(--color-primary)',
       black: 'var(--color-black)',
       white: 'var(--color-white)',

@@ -1,12 +1,15 @@
 import React from 'react';
 import {IoIosStarHalf, IoIosStarOutline, IoIosStar} from 'react-icons/io';
-import {NowPlayingResIF} from '.';
+import {NowPlayingResIF, GenresIF} from '.';
 
 interface TopContentPropsIF {
   nowPlaying: NowPlayingResIF;
+  nowPlayingGenres: Array<GenresIF>;
 }
 
-function TopContent({nowPlaying}: TopContentPropsIF) {
+function TopContent({nowPlaying, nowPlayingGenres}: TopContentPropsIF) {
+  const floor = Math.floor(Math.round(nowPlaying.vote_average) / 2);
+  const mod = Math.round(nowPlaying.vote_average) % 2;
   return (
     <>
       <div
@@ -16,16 +19,31 @@ function TopContent({nowPlaying}: TopContentPropsIF) {
         }}
       />
       <div className="text-8xl mb-10">{nowPlaying.original_title}</div>
-      <div className="flex gap-x-2 mb-4">
-        {[1, 3, 5, 7, 9].map((x, i) => (
-          <div key={i}>
-            {nowPlaying.vote_average <= 1 * x && <IoIosStarOutline color="var(--color-primary)" size="2em" />}
-            {nowPlaying.vote_average === 1 * x && <IoIosStarHalf color="var(--color-primary)" size="2em" />}
-            {nowPlaying.vote_average > 1 * x && <IoIosStar color="var(--color-primary)" size="2em" />}
-          </div>
-        ))}
+      <div className="flex items-center mb-4 text-lg">
+        <div className="flex gap-x-2">
+          {new Array(floor).fill('').map((x, i) => (
+            <div key={i}>
+              <IoIosStar color="var(--color-primary)" size="2em" />
+            </div>
+          ))}
+          {mod === 1 && <IoIosStarHalf color="var(--color-primary)" size="2em" />}
+          {new Array(5 - (floor + mod)).fill('').map((x, i) => (
+            <div key={i + 20}>
+              <IoIosStarOutline color="var(--color-primary)" size="2em" />
+            </div>
+          ))}
+        </div>
+        <span className="ml-3 text-2xl mr-7">/ {nowPlaying.vote_average.toFixed(1)}</span>
+        <div className="flex ml-7">
+          {nowPlayingGenres.map((genre, i) => (
+            <div key={genre.id}>
+              {i !== 0 && <span className="ml-3 mr-3">|</span>}
+              {genre.name}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="text-lg line-clamp-3 mb-6">{nowPlaying.overview}T</div>
+      <div className="text-lg line-clamp-3 mb-6 leading-8">{nowPlaying.overview}T</div>
     </>
   );
 }

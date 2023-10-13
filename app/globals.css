@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --color-dark: #202020;
-  --color-light: #E1E1E1;
   --color-primary: #8F6EEB;
   --color-black: #202020;
   --color-white: #E1E1E1;
@@ -17,12 +15,14 @@
   --color-orange: #EBBF6E;
   --color-green: #6EEB83;
   --color-yellow: #EBEB6E;
+  --color-text: var(--color-black);
+  --color-bg: var(--color-white);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-dark: #E1E1E1;
-    --color-light: #202020;
+    --color-text: var(--color-white);
+    --color-bg: var(--color-black);
   }
 }
 

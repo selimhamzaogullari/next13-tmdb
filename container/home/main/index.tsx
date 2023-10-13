@@ -1,7 +1,7 @@
 import React from 'react';
 import TopContent from './topContent';
 import ButtonContent from './buttonContent';
-import {getNowPlaying} from '@/services/movies';
+import {getGenresOfMovies, getNowPlaying} from '@/services/movies';
 
 export interface NowPlayingResIF {
   id: number;
@@ -10,14 +10,26 @@ export interface NowPlayingResIF {
   poster_path: string;
   backdrop_path: string;
   overview: string;
+  genre_ids: Array<number>;
+}
+
+export interface GenresIF {
+  id: number;
+  name: string;
 }
 
 async function MainContent() {
-  const nowPlaying: Array<NowPlayingResIF> = await getNowPlaying();
+  const [resGenres, nowPlaying]: [{genres: Array<any>}, Array<NowPlayingResIF>] = await Promise.all([
+    getGenresOfMovies(),
+    getNowPlaying(),
+  ]);
+  const genres: Array<GenresIF> = resGenres.genres;
+
+  const nowPlayingGenres = genres.filter(genre => nowPlaying[0].genre_ids.includes(genre.id));
 
   return (
     <div className="sm:max-w-4xl text-white">
-      <TopContent nowPlaying={nowPlaying[0]} />
+      <TopContent nowPlaying={nowPlaying[6]} nowPlayingGenres={nowPlayingGenres} />
       <ButtonContent />
     </div>
   );

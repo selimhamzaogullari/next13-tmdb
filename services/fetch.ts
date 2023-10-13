@@ -4,8 +4,10 @@ export const get = async (path: string, queryParams: string = '', cache: boolean
       cache: cache ? 'force-cache' : 'no-store',
     });
     const response = await res.json();
-    return response.results;
+    if (response?.success !== undefined) throw new Error(response.status_message);
+    else return response.hasOwnProperty('results') ? response.results : response;
   } catch (error: any) {
+    console.log(error);
     throw new Error(error);
   }
 };
