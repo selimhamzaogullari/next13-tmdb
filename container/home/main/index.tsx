@@ -1,8 +1,7 @@
 import React from 'react';
-import nowPlayingResponse from '@/mocks/movies.json';
-import Button from '@/components/button';
 import TopContent from './topContent';
 import ButtonContent from './buttonContent';
+import {getNowPlaying} from '@/services/movies';
 
 export interface NowPlayingResIF {
   id: number;
@@ -13,16 +12,12 @@ export interface NowPlayingResIF {
   overview: string;
 }
 
-const goDetailPage = () => {
-  console.log('Go detail page');
-};
-
 async function MainContent() {
-  const nowPlaying: NowPlayingResIF = nowPlayingResponse.results[0];
+  const nowPlaying: Array<NowPlayingResIF> = await getNowPlaying();
 
   return (
     <div className="sm:max-w-4xl text-white">
-      <TopContent nowPlaying={nowPlaying} />
+      <TopContent nowPlaying={nowPlaying[0]} />
       <ButtonContent />
     </div>
   );
