@@ -1,9 +1,9 @@
+import {GenresIF, MovieListIF} from '@/interfaces';
 import React from 'react';
 import {IoIosStarHalf, IoIosStarOutline, IoIosStar} from 'react-icons/io';
-import {NowPlayingResIF, GenresIF} from '.';
 
 interface TopContentPropsIF {
-  nowPlaying: NowPlayingResIF;
+  nowPlaying: MovieListIF;
   nowPlayingGenres: Array<GenresIF>;
 }
 

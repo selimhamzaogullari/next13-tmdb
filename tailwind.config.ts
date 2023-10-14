@@ -12,6 +12,7 @@ const config: Config = {
     colors: {
       'color-text': 'var(--color-text)',
       'color-bg': 'var(--color-bg)',
+      'color-text-secondary': 'var(--color-text-secondary)',
       primary: 'var(--color-primary)',
       black: 'var(--color-black)',
       white: 'var(--color-white)',

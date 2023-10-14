@@ -1,35 +1,23 @@
+'use client';
 import React from 'react';
-import TopContent from './topContent';
-import ButtonContent from './buttonContent';
 import {getGenresOfMovies, getNowPlaying} from '@/services/movies';
+import {GenresIF, MovieListIF} from '@/interfaces';
+import ButtonContent from './buttonContent';
+import TopContent from './topContent';
+import {useGenreStore} from '@/store';
 
-export interface NowPlayingResIF {
-  id: number;
-  vote_average: number;
-  original_title: string;
-  poster_path: string;
-  backdrop_path: string;
-  overview: string;
-  genre_ids: Array<number>;
+interface MainContentIF {
+  nowPlaying: MovieListIF;
+  nowPlayingGenres: Array<GenresIF>;
+  genres: Array<GenresIF>;
 }
 
-export interface GenresIF {
-  id: number;
-  name: string;
-}
-
-async function MainContent() {
-  const [resGenres, nowPlaying]: [{genres: Array<any>}, Array<NowPlayingResIF>] = await Promise.all([
-    getGenresOfMovies(),
-    getNowPlaying(),
-  ]);
-  const genres: Array<GenresIF> = resGenres.genres;
-
-  const nowPlayingGenres = genres.filter(genre => nowPlaying[0].genre_ids.includes(genre.id));
-
+async function MainContent({nowPlaying, nowPlayingGenres, genres}: MainContentIF) {
+  const addGenres = useGenreStore(state => state.add);
+  addGenres(genres);
   return (
     <div className="sm:max-w-4xl text-white">
-      <TopContent nowPlaying={nowPlaying[6]} nowPlayingGenres={nowPlayingGenres} />
+      <TopContent nowPlaying={nowPlaying} nowPlayingGenres={nowPlayingGenres} />
       <ButtonContent />
     </div>
   );

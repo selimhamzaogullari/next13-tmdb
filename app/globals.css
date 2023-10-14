@@ -8,7 +8,7 @@
   --color-white: #E1E1E1;
   --color-gray-light: #C1C1C1;
   --color-gray: #A1A1A1;
-  --color-gray-dark: #818181;
+  --color-gray-dark: #717171;
   --color-blue: #6E83EB;
   --color-purple: #AF6EEB;
   --color-pink: #EB6EE4;
@@ -17,12 +17,14 @@
   --color-yellow: #EBEB6E;
   --color-text: var(--color-black);
   --color-bg: var(--color-white);
+  --color-text-secondary: var(--color-gray-dark);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: var(--color-white);
     --color-bg: var(--color-black);
+    --color-text-secondary: var(--color-gray);
   }
 }
 
@@ -31,13 +33,13 @@ body {
   font-style: normal;
   font-weight: 500;
   min-height: 100vh;
-  @apply bg-white text-black
+  @apply bg-color-bg text-black
 }
 
 .container-screen {
   display: grid;
   grid-template-columns: 1fr min(1440px, 94%) 1fr;
-  grid-template-rows: 96px auto 72px;
+  grid-template-rows: 96px auto;
 }
 
 .container-screen > * {
