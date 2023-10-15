@@ -1,8 +1,7 @@
-'use client';
 import {MovieListIF} from '@/interfaces';
-import {useGenreStore} from '@/store';
 import Image from 'next/image';
 import React from 'react';
+import Genre from './genre';
 
 interface MovieListCompIF {
   title: string;
@@ -11,7 +10,6 @@ interface MovieListCompIF {
 }
 
 function MovieLists({title, data, classNames = ''}: MovieListCompIF) {
-  const genres = useGenreStore(state => state.genres);
   return (
     <div className={`${classNames}`}>
       <h2 className="text-color-text text-3xl mb-6">{title}</h2>
@@ -26,9 +24,11 @@ function MovieLists({title, data, classNames = ''}: MovieListCompIF) {
               alt={movie.original_title}
             />
             <h4 className="text-color-text text-lg text-center mt-2">{movie.original_title}</h4>
-            <h5 className="text-color-text-secondary text-base text-center mt-2">
-              {movie.release_date.slice(0, 4)} / Adventure
-            </h5>
+            <div className="text-color-text-secondary text-base text-center mt-2 flex items-center justify-center">
+              <span>{movie.release_date.slice(0, 4)}</span>
+              <span className="ml-2 mr-2">/</span>
+              <Genre genreIds={movie.genre_ids} slice={1} />
+            </div>
           </div>
         ))}
       </div>

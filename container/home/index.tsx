@@ -10,12 +10,11 @@ async function HomeContainer() {
     getNowPlaying(),
   ]);
   const genres: Array<GenresIF> = resGenres.genres;
-  const nowPlayingGenres = genres.filter(genre => nowPlaying[0].genre_ids.includes(genre.id));
 
   return (
     <>
       <main className="flex flex-column items-center h-[calc(100vh-96px)]">
-        <MainContent nowPlaying={nowPlaying[0]} nowPlayingGenres={nowPlayingGenres} genres={genres} />
+        <MainContent nowPlaying={nowPlaying[0]} genres={genres} />
       </main>
       <MiddleContent nowPlaying={nowPlaying} />
     </>
