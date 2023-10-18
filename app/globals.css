@@ -5,6 +5,7 @@
 :root {
   --color-primary: #8F6EEB;
   --color-black: #202020;
+  --color-black-dark: #101010;
   --color-white: #E1E1E1;
   --color-gray-light: #C1C1C1;
   --color-gray: #A1A1A1;
@@ -48,4 +49,13 @@ body {
 
 .container-screen > .fluid {
   grid-column: 1 / -1;
+}
+
+.movie-ribbon-wrapper {
+  @apply w-[120px] h-[120px] overflow-hidden absolute top-[0] right-[0]
+}
+
+.movie-ribbon {
+  @apply text-white text-sm bg-primary text-center relative rotate-45 px-0 py-[7px] left-[0] top-[26px] w-[155px];
+
 }

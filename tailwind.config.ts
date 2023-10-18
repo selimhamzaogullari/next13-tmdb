@@ -14,7 +14,10 @@ const config: Config = {
       'color-bg': 'var(--color-bg)',
       'color-text-secondary': 'var(--color-text-secondary)',
       primary: 'var(--color-primary)',
-      black: 'var(--color-black)',
+      black: {
+        DEFAULT: 'var(--color-black)',
+        dark: 'var(--color-black-dark)',
+      },
       white: 'var(--color-white)',
       'gray-light': 'var(--color-gray-light)',
       gray: 'var(--color-gray)',

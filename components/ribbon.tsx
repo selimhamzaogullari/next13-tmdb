@@ -6,7 +6,9 @@ interface RibbonCompIF {
 
 function Ribbon({title}: RibbonCompIF) {
   return (
-    <div className="absolute top-2 right-[-30px] px-2 py-1 rounded-full bg-primary rotate-45 text-white">{title}</div>
+    <div className="movie-ribbon-wrapper">
+      <div className="movie-ribbon">{title}</div>
+    </div>
   );
 }
 

@@ -13,7 +13,7 @@ function TopContent({nowPlaying}: TopContentPropsIF) {
   return (
     <>
       <div
-        className="absolute top-0 left-0 w-screen h-screen bg-cover -z-10"
+        className="absolute top-0 left-0 w-full h-full bg-cover -z-10"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original${nowPlaying.backdrop_path})`,
         }}

@@ -21,7 +21,7 @@ function MainMovie({movie, ribbonText}: MainMovieCompIF) {
         }}
       />
       <div
-        className="rounded-lg m-auto absolute h-[500px] w-[80%] top-[150px] left-[10%] bg-cover"
+        className="rounded-lg m-auto absolute h-[500px] w-[80%] top-[100px] left-[10%] bg-cover"
         style={{
           backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
         }}>
