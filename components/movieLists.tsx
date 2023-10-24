@@ -13,9 +13,9 @@ function MovieLists({title, data, classNames = ''}: MovieListCompIF) {
   return (
     <div className={`${classNames}`}>
       <h2 className="text-color-text text-3xl mb-6">{title}</h2>
-      <div className="flex justify-between gap-x-5">
+      <div className="flex justify-between gap-x-5 overflow-x-auto">
         {data.map(movie => (
-          <div key={'movie-list-' + movie.id}>
+          <div className="w-[200px]" key={'movie-list-' + movie.id}>
             <Image
               src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
               className="rounded-lg"

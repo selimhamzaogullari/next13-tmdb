@@ -9,7 +9,7 @@ function HeaderLayout() {
       }}>
       <div className="flex items-center">
         <div className="min-w-[125px] text-4xl">LOGO</div>
-        <ul className="flex gap-x-3">
+        <ul className="hidden gap-x-3 md:flex">
           <li>Home</li>
           <li>Latest</li>
           <li>Tv Shows</li>

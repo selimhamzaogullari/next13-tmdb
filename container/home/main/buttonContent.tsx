@@ -12,7 +12,7 @@ const showTrailer = () => {
 
 function ButtonContent() {
   return (
-    <div className="flex gap-x-7">
+    <div className="flex gap-x-7 justify-center md:justify-normal">
       <Button onClick={showTrailer}>Intro</Button>
       <Button onClick={goDetailPage} transparent>
         Detail

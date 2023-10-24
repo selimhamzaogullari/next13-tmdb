@@ -21,17 +21,17 @@ function MainMovie({movie, ribbonText}: MainMovieCompIF) {
         }}
       />
       <div
-        className="rounded-lg m-auto absolute h-[500px] w-[80%] top-[100px] left-[10%] bg-cover"
+        className="rounded-lg m-auto absolute h-[500px] w-[80%] top-[100px] left-[10%] bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
         }}>
         <Ribbon title={ribbonText} />
-        <div className="absolute right-[3%] bottom-[8%] text-white w-[50%]">
-          <h2 className="text-3xl mb-5">{movie.original_title}</h2>
-          <div className="flex items-center mb-4 text-lg">
+        <div className="absolute right-[5%] bottom-[8%] text-white w-[90%] lg:w-[60%] lg:right-[3%]">
+          <h2 className="text-3xl mb-5 text-center lg:text-left">{movie.original_title}</h2>
+          <div className="flex items-center mb-4 text-lg flex-wrap justify-center gap-y-2 lg:flex-nowrap lg:justify-normal">
             <Star vote={movie.vote_average} />
-            <span className="ml-3 text-2xl mr-7">/ {movie.vote_average.toFixed(1)}</span>
-            <Genre genreIds={movie.genre_ids} classNames="ml-7" slice={2} />
+            <span className="ml-3 text-xl mr-7 lg:text-2xl">/ {movie.vote_average.toFixed(1)}</span>
+            <Genre genreIds={movie.genre_ids} classNames="lg:ml-3" slice={2} />
           </div>
           <Overview overview={movie.overview} />
           <ButtonContent />
